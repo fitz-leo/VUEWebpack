@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/vue-2.4.0.js"></script>
+    <style>
+
+    </style>
+</head>
+<body>
+<div id="app">
+    <!--<h1 :style="{color:'red' ,'font-weight':200 }">这是一个h1</h1>-->
+    <!--<h1 :style="styleObj">这是一个h1</h1>-->
+    <h1 :style="[styleObj,styleObj2]">这是一个h1</h1>
+</div>
+<script>
+    var vm=new Vue({
+      el:'#app',
+      data:{
+        styleObj:{color:'red' ,'font-weight':200},
+        styleObj2: { 'font-style': 'italic' }
+      },
+      methods:{
+
+      }
+    });
+</script>
+</body>
+</html>

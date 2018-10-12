@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../js/vue-2.4.0.js"></script>
+</head>
+
+<body>
+<div id="app">
+    <mycom4></mycom4>
+</div>
+<template id="msg1">
+    <h1>这是全局组件====={{msg}}</h1>
+</template>
+<script>
+  Vue.component('mycom4', {
+    template: '#msg1',
+    data: function () {
+      return {
+        msg:'这是组件中data定义的数据'
+      }
+    }
+  })
+  // 创建 Vue 实例，得到 ViewModel
+  var vm = new Vue({
+    el: '#app',
+    data: {},
+    methods: {}
+  })
+</script>
+</body>
+
+</html>

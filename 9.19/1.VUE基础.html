@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/vue-2.4.0.js"></script>
+</head>
+<body>
+//V
+<div id="app">
+    <p id="content">{{ msg }}</p>
+</div>
+<script>
+  //创建一个vue的实例
+  //当我们导入包后，在浏览器的内存中就多了一个vue构造函数
+  //VM调度者
+  var vm = new Vue({
+    //表示当前我们new这个vue实例，要控制页面上的那个区域
+    el: '#app',
+    //data就是mvvm中的m，专门用来保存每个页面的数据
+    data :{
+      //data属性中，存放的是el中要用到的数据
+      msg: '欢迎学习vue'
+      //通过vue提供的指令，很方便的就能把数据渲染到页面上，不在手动操作dom[前端的vue之类的狂降
+     // 不提倡我们手动操作dom元素]
+    }
+  });
+</script>
+</body>
+</html>

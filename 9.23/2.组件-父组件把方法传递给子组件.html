@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../js/vue-2.4.0.js"></script>
+</head>
+
+<body>
+<div id="app">
+    <!--<com2 v-on:func="show"></com2>-->
+    <com2 @func="show"></com2>
+</div>
+<template id="tmp1">
+    <div>
+        <h1>这是子组件</h1>
+        <input type="button" value="按钮" @click="myclick">
+    </div>
+</template>
+<script>
+    var com2={
+      template:'#tmp1',
+      data() {
+        return {
+          sonmsg: { name: '小头儿子', age: 6 }
+        }
+      },
+      methods: {
+        myclick(){
+          this.$emit('func',this.sonmsg)
+        }
+      }
+    }
+  // 创建 Vue 实例，得到 ViewModel
+  var vm = new Vue({
+    el: '#app',
+    data: {
+      datamsgFormSon:null
+    },
+    methods: {
+      show(data){
+        this.datamsgFormSon=data
+      }
+    },
+    components:{
+      com2
+    }
+  })
+</script>
+</body>
+
+</html>

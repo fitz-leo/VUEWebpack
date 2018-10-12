@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../js/vue-2.4.0.js"></script>
+</head>
+
+<body>
+<div id="app">
+    <mycom3></mycom3>
+</div>
+
+<div id="app2">
+    <login></login>
+</div>
+<template id="tmp1">
+    <div>
+        <h1>这是通过template元素，在外部定义的组件结构</h1>
+        <h4>还不错哟</h4>
+    </div>
+</template>
+<template id="tmp2">
+    <h1>这是私有的 login 组件</h1>
+</template>
+
+<script>
+  Vue.component('mycom3', {
+    template: '#tmp1'
+  })
+  // 创建 Vue 实例，得到 ViewModel
+  var vm = new Vue({
+    el: '#app',
+    data: {},
+    methods: {}
+  })
+
+  var vm2 = new Vue({
+    el: '#app2',
+    data: {},
+    methods: {},
+    components: {
+      login: {
+        template: '#tmp2'
+      }
+    }
+  })
+</script>
+</body>
+
+</html>

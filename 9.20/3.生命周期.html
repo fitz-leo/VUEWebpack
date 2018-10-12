@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../js/vue-2.4.0.js"></script>
+</head>
+
+<body>
+<div id="app">
+    <input type="button" value="修改字符串" @click="msg='No'">
+    <h3 id="h3">{{msg}}</h3>
+</div>
+
+<script>
+  // 创建 Vue 实例，得到 ViewModel
+  var vm = new Vue({
+    el: '#app',
+    data: {
+      msg: 'ok'
+    },
+    methods: {
+      show () {
+        console.log('123')
+      }
+    },
+    beforeCreate () {
+      // console.log(this.msg)
+    },
+    created () {
+      // console.log(this.msg);
+      // this.show();
+    },
+    beforeMount () {
+      // var getH3 = document.getElementById('h3').innerText
+      // console.log(getH3)
+    },
+    mounted () {
+      // var getH3 = document.getElementById('h3').innerText
+      // console.log(getH3)
+    },
+    //运行中的事件
+    beforeUpdate () {
+      //这时候表示我们的界面还没有被更新，数据已经被更新了
+      // var getH3 = document.getElementById('h3').innerText
+      // console.log(getH3)
+      // console.log(this.msg)
+    },
+    updated () {
+      console.log('界面上元素的内容：' + document.getElementById('h3').innerText)
+      console.log('data 中的 msg 数据是：' + this.msg)
+      // updated 事件执行的时候，页面和 data 数据已经保持同步了，都是最新的
+    }
+  })
+</script>
+</body>
+
+</html>
